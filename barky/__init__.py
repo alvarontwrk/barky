@@ -7,6 +7,7 @@ def notify_locally(title: str, body: str):
     notification = Notify()
     notification.title = title
     notification.message = body
+    notification.icon = "barky/icon.png"
 
     notification.send()
 
