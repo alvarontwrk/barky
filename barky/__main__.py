@@ -35,7 +35,11 @@ def main(message, title, remote, local):
     if remote:
         barky.notify_remotelly(title, message, chat_id, token)
     if local:
-        barky.notify_locally(title, message)
+        try:
+            barky.notify_locally(title, message)
+        except barky.BinaryNotFound as e:
+            print("Local notification not supported. The following \
+                  binary is needed {}".format(e))
 
     if not remote and not local:
         barky.notify_remotelly(title, message, chat_id, token)
