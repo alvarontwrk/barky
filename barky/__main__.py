@@ -8,6 +8,7 @@ import sys
 @click.option("-m", "--message", type=str)
 @click.option("-r", "--remote", is_flag=True)
 @click.option("-l", "--local", is_flag=True)
+@click.version_option()
 def main(message, title, remote, local):
     """
     Priority for message:
