@@ -5,6 +5,7 @@ import importlib.metadata
 # Get version from pyproject.toml
 __version__ = importlib.metadata.version("barky")
 
+# Export the exception
 BinaryNotFound = notifypy.exceptions.BinaryNotFound
 
 

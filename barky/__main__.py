@@ -43,7 +43,11 @@ def main(message, title, remote, local):
 
     if not remote and not local:
         barky.notify_remotelly(title, message, chat_id, token)
-        barky.notify_locally(title, message)
+        try:
+            barky.notify_locally(title, message)
+        # If the binary is not found here, just omit it
+        except barky.BinaryNotFound:
+            pass
 
 
 main()
