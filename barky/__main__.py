@@ -18,6 +18,7 @@ def main(message, title, remote, local):
     """
     if not sys.stdin.isatty() and not message:
         message = "".join(sys.stdin.readlines())
+        print(message)
 
     title = title if title else "[+] Barky"
     message = message if message else "PING"
