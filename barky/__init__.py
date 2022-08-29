@@ -11,7 +11,7 @@ BinaryNotFound = notifypy.exceptions.BinaryNotFound
 
 def notify_locally(title: str, body: str):
     notification = notifypy.Notify()
-    notification.title = title
+    notification.title = "[+] {}".format(title)
     notification.message = body
     try:
         notification.icon = __path__[0] + "/icon.png"
@@ -23,7 +23,7 @@ def notify_locally(title: str, body: str):
 
 
 def notify_remotelly(title: str, body: str, chat_id: str, token: str):
-    text = "{}\n\n{}".format(title.strip(), body.strip())
+    text = "[+] {}\n\n{}".format(title.strip(), body.strip())
     bot = telegram.Bot(token)
     if len(text) > telegram.constants.MAX_MESSAGE_LENGTH:
         for i in range(0, len(text), telegram.constants.MAX_MESSAGE_LENGTH):

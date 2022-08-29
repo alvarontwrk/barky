@@ -21,7 +21,7 @@ def main(message, title, remote, local):
         message = "".join(sys.stdin.readlines())
         print(message)
 
-    title = title if title else "[+] Barky"
+    title = title if title else "Barky"
     message = message if message else "PING"
     chat_id = os.environ.get("BARKY_TG_CHAT", "")
     token = os.environ.get("BARKY_TG_TOKEN", "")
