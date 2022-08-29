@@ -5,7 +5,7 @@ import importlib.metadata
 # Get version from pyproject.toml
 __version__ = importlib.metadata.version("barky")
 
-BinaryNotFound = notifypy.exceptions.BinayNotFound
+BinaryNotFound = notifypy.exceptions.BinaryNotFound
 
 
 def notify_locally(title: str, body: str):
