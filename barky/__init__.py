@@ -1,13 +1,17 @@
 import notifypy
 import telegram
 import os
+import pkgutil
+
+# This is needed to find icon.png in the package directory
+pkgutil.extend_path(__path__, __name__)
 
 
 def notify_locally(title: str, body: str):
     notification = notifypy.Notify()
     notification.title = title
     notification.message = body
-    notification.icon = "barky/icon.png"
+    notification.icon = "icon.png"
 
     notification.send()
 
