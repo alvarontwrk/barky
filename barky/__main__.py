@@ -1,5 +1,6 @@
 import click
 import barky
+import sys
 
 
 @click.command()
@@ -8,7 +9,14 @@ import barky
 @click.option("-r", "--remote", is_flag=True)
 @click.option("-l", "--local", is_flag=True)
 def main(message, title, remote, local):
-    message
+    """
+    Priority for message:
+        1. Option -m
+        2. STDIN
+        3. "PING"
+    """
+    if not sys.stdin.isatty() and not message:
+        message = "".join(sys.stdin.readlines())
 
     title = title if title else "[+] Barky"
     message = message if message else "PING"
