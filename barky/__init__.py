@@ -23,6 +23,13 @@ def notify_locally(title: str, body: str):
 
 
 def notify_remotelly(title: str, body: str, chat_id: str, token: str):
-    text = "{}\n\n{}".format(title, body)
+    text = "{}\n\n{}".format(title.strip(), body.strip())
     bot = telegram.Bot(token)
-    bot.send_message(chat_id, text)
+    print(len(text))
+    if len(text) > telegram.constants.MAX_MESSAGE_LENGTH:
+        for i in range(0, len(text), telegram.constants.MAX_MESSAGE_LENGTH):
+            print(text[i:i+telegram.constants.MAX_MESSAGE_LENGTH])
+            bot.send_message(chat_id,
+                             text[i:i+telegram.constants.MAX_MESSAGE_LENGTH])
+    else:
+        bot.send_message(chat_id, text)
