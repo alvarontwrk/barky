@@ -1,6 +1,7 @@
 import click
 import barky
 import sys
+import os
 
 
 @click.command()
@@ -22,14 +23,23 @@ def main(message, title, remote, local):
 
     title = title if title else "[+] Barky"
     message = message if message else "PING"
+    chat_id = os.environ.get("BARKY_TG_CHAT", "")
+    token = os.environ.get("BARKY_TG_TOKEN", "")
+
+    if not chat_id or not token:
+        print("Need to specify the following environment variables:")
+        print("\t- BARKY_TG_CHAT: Telegram chat ID")
+        print("\t- BARKY_TG_TOKEN: Telegram bot token")
+        sys.exit(1)
 
     if remote:
-        barky.notify_remotelly(title, message)
+        barky.notify_remotelly(title, message, chat_id, token)
     if local:
         barky.notify_locally(title, message)
 
     if not remote and not local:
-        barky.notify_remotelly(title, message)
+        barky.notify_remotelly(title, message, chat_id, token)
         barky.notify_locally(title, message)
+
 
 main()

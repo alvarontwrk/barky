@@ -1,6 +1,5 @@
 import notifypy
 import telegram
-import os
 import importlib.metadata
 
 # Get version from pyproject.toml
@@ -20,10 +19,7 @@ def notify_locally(title: str, body: str):
     notification.send()
 
 
-def notify_remotelly(title: str, body: str):
-    chat_id = os.environ["BARKY_TG_CHAT"]
-    token = os.environ["BARKY_TG_TOKEN"]
-
+def notify_remotelly(title: str, body: str, chat_id: str, token: str):
     text = "{}\n\n{}".format(title, body)
 
     bot = telegram.Bot(token)
