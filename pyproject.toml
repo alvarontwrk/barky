@@ -5,13 +5,14 @@ description = ""
 authors = ["alvaro <garciajaenalvaro@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9,<3.11"
 notify-py = "^0.3.3"
 python-telegram-bot = "^13.13"
 click = "^8.1.3"
 
 [tool.poetry.dev-dependencies]
 ipython = "^8.4.0"
+pyinstaller = "^5.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

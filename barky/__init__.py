@@ -11,7 +11,11 @@ def notify_locally(title: str, body: str):
     notification = notifypy.Notify()
     notification.title = title
     notification.message = body
-    notification.icon = __path__[0] + "/icon.png"
+    try:
+        notification.icon = __path__[0] + "/icon.png"
+    # Catch exception in case icon is finally not found
+    except notifypy.exceptions.InvalidIconPath:
+        notification.icon = ""
 
     notification.send()
 

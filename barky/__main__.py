@@ -31,3 +31,5 @@ def main(message, title, remote, local):
     if not remote and not local:
         barky.notify_remotelly(title, message)
         barky.notify_locally(title, message)
+
+main()
