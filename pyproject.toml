@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "barky"
-version = "0.6"
+version = "0.7"
 description = ""
 authors = ["alvaro <garciajaenalvaro@gmail.com>"]
 
